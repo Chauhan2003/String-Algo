@@ -1,0 +1,32 @@
+// Pattern Searching :)
+
+import java.util.*;
+
+class Main{
+    public static int patternSearching(char[] ar1, char[] ar2){
+        for(int i=0;i<(ar1.length - ar2.length);i++){
+            int j;
+            for(j=0;j<ar2.length;j++){
+                if(ar1[i+j] != ar2[j]){
+                    break;
+                }
+            }
+            
+            if(j == ar2.length){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+    public static void main(String[] args){
+        String str = "ababbahuuhnl";
+        String p = "ahu";
+        
+        char[] str_arr = str.toCharArray();
+        char[] p_arr = p.toCharArray();
+        
+        int idx = patternSearching(str_arr, p_arr);
+        System.out.println(idx);
+    }    
+}
